@@ -1,17 +1,27 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<!-- Header -->
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header [translucent]="true">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title>
+        <ion-item text-center>
+          <strong style="text-align:center">UK Sport</strong>
+          <img width="50" height="30"
+            src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Flag_of_Great_Britain_%281707%E2%80%931800%29.svg">
+        </ion-item>
+      </ion-title>
     </ion-toolbar>
   </ion-header>
+  <h5 style="text-align:center">Welcome {{firstName}}</h5>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
-</ion-content>
+  <!-- the news stories output from http client
+  i originally had a content section aswell but it made the page look very cluttered --> 
+  <ion-list>
+    <ion-item *ngFor="let story of UkSportStories">
+      <p>{{story.title}}</p>
+      <!-- <p>{{story.url}}</p>  -->
+      <img height=150 width=200 src="{{story.urlToImage}}">
+    </ion-item>
+  </ion-list>
+  
+    <app-explore-container></app-explore-container>
+  </ion-content>

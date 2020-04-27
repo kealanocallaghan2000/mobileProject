@@ -1,0 +1,74 @@
+<!-- Header -->
+<ion-content [fullscreen]="true">
+  <ion-header [translucent]="false">
+    <ion-toolbar>
+       <ion-title>
+        <ion-item text-center>
+          <strong>My Team</strong>
+          <img width="50" height="50" src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Fleaguelogos%2Fsoccer%2F500%2F23.png" >
+        </ion-item>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <app-explore-container></app-explore-container>
+
+  <!-- Header for the name of the users team -->
+  <ion-text color="secondary">
+    <h3 style="text-align:center">Team Name</h3>
+  </ion-text>
+
+  <!-- outputs the users chosen team name -->
+    <h4 style="text-align:center">{{ name }}</h4>
+
+  <!-- Asks the user to pick a team name -->
+  <div>
+  <p style="text-align:center"><b>Please enter the name of your team:</b></p>
+  <ion-input style="text-align:center" [(ngModel)]="name" placeholder="Team name"></ion-input> 
+  </div>
+
+  <!-- Asks the player to pick their team players -->
+  <div>
+    <p><b>Please select the players on your team:</b></p>
+  </div>
+
+  <!-- Dropdown box of PL Teams -->
+  <ion-item>
+    <ion-label>Squad Players</ion-label>
+    <ion-select interface="popover">
+      <input [(ngModel)]="team">
+      <ion-select-option value="AFCBournemouth">AFC Bournemouth</ion-select-option>
+      <ion-select-option value="Arsenal">Arsenal</ion-select-option>
+      <ion-select-option value="AstonVilla">Aston Villa</ion-select-option>
+      <ion-select-option value="Brighton&HoveAlbion">Brighton & Hove Albion</ion-select-option>
+      <ion-select-option value="Burnley">Burnley</ion-select-option>
+      <ion-select-option value="Chelsea">Chelsea</ion-select-option>
+      <ion-select-option value="CrystalPalace">Crystal Palace</ion-select-option>
+      <ion-select-option value="Everton">Everton</ion-select-option>
+      <ion-select-option value="LeicesterCity">Leicester City</ion-select-option>
+      <ion-select-option value="Liverpool">Liverpool</ion-select-option>
+      <ion-select-option value="ManchesterCity">Manchester City</ion-select-option>
+      <ion-select-option value="ManchesterUnited">Manchester United</ion-select-option>
+      <ion-select-option value="NewcastleUnited">Newcastle United</ion-select-option>
+      <ion-select-option value="NorwichCity">Norwich City</ion-select-option>
+      <ion-select-option value="SheffieldUnited">Sheffield United</ion-select-option>
+      <ion-select-option value="Southampton">Southampton</ion-select-option>
+      <ion-select-option value="TottenhamHotspur">Tottenham Hotspur</ion-select-option>
+      <ion-select-option value="Watford">Watford</ion-select-option>
+      <ion-select-option value="WestHamUnited">West Ham United</ion-select-option>
+      <ion-select-option value="WolverhamptonWanderers">Wolverhampton Wanderers</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <br>
+  <br>
+  <br>
+
+  <!-- this is my implementation of a flashlight plugin as i couldnt think
+  of another way which would actually fit with my project -->
+  <ion-button expand="full" color="tertiary" (click)="flashlightMethod()">Flashlight</ion-button>
+  
+
+  <app-explore-container></app-explore-container>
+</ion-content>
+

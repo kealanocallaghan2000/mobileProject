@@ -1,17 +1,34 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<!-- My header which is the same across every tab -->
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header [translucent]="true">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title>
+        <ion-item text-center>
+          <strong style="text-align:center">Irish Sport</strong>
+          <img width="50" height="30"
+            src="https://upload.wikimedia.org/wikipedia/commons/4/45/Flag_of_Ireland.svg">
+        </ion-item>
+      </ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <!-- This is the input box for entering the users name which is stored locally -->
+  <ion-input style="text-align:center" [(ngModel)]="inputName" placeholder="Enter your name"></ion-input>
+
+  <!-- Button to save the users name using local storage -->
+  <ion-button expand="full" color="tertiary" (click)="onSave()">Save</ion-button>
+
+  <!-- output for the users name and welcome message -->
+  <h5 style="text-align:center">Welcome {{firstName}}</h5>
+
+  <!-- the news stories output from http client
+  i originally had a content section aswell but it made the page look very cluttered -->
+  <ion-list>
+    <ion-item *ngFor="let story of SportStories">
+      <p>{{story.title}}</p>
+      <!-- <p>{{story.url}}</p>  -->
+      <img height=150 width=200 src="{{story.urlToImage}}">
+    </ion-item>
+  </ion-list>
+
 </ion-content>
